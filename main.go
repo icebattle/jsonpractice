@@ -8,17 +8,17 @@ import (
 )
 
 func main() {
-	p := formats.Person{"Morning", "Evening"}
-	fmt.Println(p)
-	b, _ := json.Marshal(p)
-	fmt.Println(b)
+	person := formats.Person{"Happy", "Golucky"}
+	fmt.Println(person)
+	buff, _ := json.Marshal(person)
+	fmt.Println(buff)
 
-	var mp formats.Person
-	json.Unmarshal(b, &mp)
-	fmt.Println(mp)
+	var mperson formats.Person
+	json.Unmarshal(buff, &mperson)
+	fmt.Println(mperson)
 
 	var uf interface{}
-	json.Unmarshal(b, &uf)
+	json.Unmarshal(buff, &uf)
 	fmt.Println(uf)
 	m := uf.(map[string]interface{})
 	for k, v := range m {
@@ -31,7 +31,7 @@ func main() {
 	}
 
 	r := formats.Resides{"Vancouver", "Canada"}
-	pr := formats.PersonWithResides{"Ding", "Dong", r}
+	pr := formats.PersonWithResides{"Holly", "Golightly", r}
 	fmt.Println(pr)
 	q, _ := json.Marshal(pr)
 	fmt.Println(q)
